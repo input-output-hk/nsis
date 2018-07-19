@@ -23,6 +23,10 @@
 #include "config.h"
 #include <shlobj.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 extern TCHAR ps_tmpbuf[NSIS_MAX_STRLEN*2];
 TCHAR * NSISCALL GetNSISString(TCHAR *outbuf, int strtab);
 #define GetNSISStringTT(strtab) GetNSISString(0, (strtab))
@@ -211,6 +215,10 @@ DWORD NSISCALL WaitForProcess(HANDLE hProcess);
 #define CMP4CHAR(mem, const4) (*(LPDWORD)(mem) == (DWORD)(const4[0]|const4[1]<<8|const4[2]<<16|const4[3]<<24))
 #define SET2CHAR(mem, const2) (*(LPWORD)(mem) = (const2[0]|const2[1]<<8))
 #endif
+#endif
+
+#ifdef __cplusplus
+}
 #endif
 
 #endif//!___NSIS_UTIL_H___

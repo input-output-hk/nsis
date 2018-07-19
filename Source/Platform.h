@@ -1018,12 +1018,10 @@ typedef struct tagVS_FIXEDFILEINFO {
      int WINAPI _tWinMain(HINSTANCE hI,HINSTANCE hOld,LPTSTR cl,int sc); \
      EXTERN_C int WINAPI WinMain(HINSTANCE hI,HINSTANCE hOld,char*cl,int sc) \
      {return _tWinMain(hI,0,0,sc);}
-#  ifdef __cplusplus
 #    define NSIS_ENTRYPOINT_GUINOCRT \
        EXTERN_C void NSISWinMainNOCRT(); \
        int WINAPI WinMain(HINSTANCE hI,HINSTANCE hOld,char*cl,int sc) \
        {NSISWinMainNOCRT();return 0;}
-#  endif
 #endif
 #ifndef NSIS_ENTRYPOINT_TMAIN
 #  define NSIS_ENTRYPOINT_TMAIN
